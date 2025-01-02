@@ -588,8 +588,12 @@ split
             }
             if(settings["4.8"] && current.stateFlag == 4139 && current.battleId == 938 && old.currentHPenemy1 >= 10001 && current.currentHPenemy1 <= 10000 && !vars.Splits.Contains("necron"))
             {
-                vars.Splits.Add("necron");
-                return true;
+                vars.Stopwatch.Start();
+                if (vars.Stopwatch.ElapsedMilliseconds >= 2000){
+                    vars.Stopwatch.Reset();
+                    vars.Splits.Add("necron");
+                    return true;
+                }
             }
         }
     }
