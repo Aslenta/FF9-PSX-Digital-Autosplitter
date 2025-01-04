@@ -48,27 +48,28 @@ startup
     settings.Add("3", false, "Disc 3");
         settings.Add("3.1", false, "Card Tournament", "3");
         settings.Add("3.2", false, "Mistodons", "3");
-        settings.Add("3.3", false, "Blue Narciss", "3");
-        settings.Add("3.4", false, "Sand", "3");
-        settings.Add("3.5", false, "Enter Oeilvert", "3");
-        settings.Add("3.6", false, "Ark", "3");
-        settings.Add("3.7", false, "Desert Palace Start", "3");
-        settings.Add("3.8", false, "Valia Pira", "3");
-        settings.Add("3.9", false, "Enter Esto Gaza", "3");
-        settings.Add("3.10", false, "Red Dragons", "3");
-        settings.Add("3.11", false, "Meltigemini", "3");
-        settings.Add("3.12", false, "Enter Ipsen's Castle", "3");
-        settings.Add("3.13", false, "Taharka", "3");
-        settings.Add("3.14", false, "Enter Earth Shrine", "3");
-        settings.Add("3.15", false, "Earth Guardian", "3");
-        settings.Add("3.16", false, "Enter Bran Bal", "3");
-        settings.Add("3.17", false, "Amdusias", "3");
-        settings.Add("3.18", false, "Abadon", "3");
-        settings.Add("3.19", false, "Shell Dragon", "3");
-        settings.Add("3.20", false, "Silver Dragon", "3");
-        settings.Add("3.21", false, "Garland", "3");
-        settings.Add("3.22", false, "Kuja", "3");
-        settings.Add("3.23", false, "End of Disc 3", "3");
+        settings.Add("3.3", false, "Late Tantarian", "3");
+        settings.Add("3.4", false, "Blue Narciss", "3");
+        settings.Add("3.5", false, "Sand", "3");
+        settings.Add("3.6", false, "Enter Oeilvert", "3");
+        settings.Add("3.7", false, "Ark", "3");
+        settings.Add("3.8", false, "Desert Palace Start", "3");
+        settings.Add("3.9", false, "Valia Pira", "3");
+        settings.Add("3.10", false, "Enter Esto Gaza", "3");
+        settings.Add("3.11", false, "Red Dragons", "3");
+        settings.Add("3.12", false, "Meltigemini", "3");
+        settings.Add("3.13", false, "Enter Ipsen's Castle", "3");
+        settings.Add("3.14", false, "Taharka", "3");
+        settings.Add("3.15", false, "Enter Earth Shrine", "3");
+        settings.Add("3.16", false, "Earth Guardian", "3");
+        settings.Add("3.17", false, "Enter Bran Bal", "3");
+        settings.Add("3.18", false, "Amdusias", "3");
+        settings.Add("3.19", false, "Abadon", "3");
+        settings.Add("3.20", false, "Shell Dragon", "3");
+        settings.Add("3.21", false, "Silver Dragon", "3");
+        settings.Add("3.22", false, "Garland", "3");
+        settings.Add("3.23", false, "Kuja", "3");
+        settings.Add("3.24", false, "End of Disc 3", "3");
 
     settings.Add("4", false, "Disc 4");
         settings.Add("4.1", false, "Nova Dragon", "4");
@@ -422,7 +423,12 @@ split
                 vars.Splits.Add("mistodons");
                 return true;
             }
-            if(settings["3.3"] && old.ScenarioCounter == 9370 && current.ScenarioCounter == 9400 && current.fieldId == 2855 && !vars.Splits.Contains("bluenarciss"))
+            if(settings["3.3"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 930 && !vars.Splits.Contains("latetantarian"))
+            {
+                vars.Splits.Add("latetantarian");
+                return true;
+            }
+            if(settings["3.4"] && old.ScenarioCounter == 9370 && current.ScenarioCounter == 9400 && current.fieldId == 2855 && !vars.Splits.Contains("bluenarciss"))
             {
                 vars.Splits.Add("bluenarciss");
                 return true;
@@ -430,17 +436,17 @@ split
         }
         else if(current.ScenarioCounter >= 9410 && current.ScenarioCounter < 9790)
         {
-            if(settings["3.4"] && old.stateFlag == 7000 && current.stateFlag == 10273 && current.fieldId == 2200 && !vars.Splits.Contains("sand"))
+            if(settings["3.5"] && old.stateFlag == 7000 && current.stateFlag == 10273 && current.fieldId == 2200 && !vars.Splits.Contains("sand"))
             {
                 vars.Splits.Add("sand");
                 return true;
             }
-            if(settings["3.5"] && old.stateFlag == 7000 && current.stateFlag == 10273 && current.fieldId == 2250 && !vars.Splits.Contains("oeilvert"))
+            if(settings["3.6"] && old.stateFlag == 7000 && current.stateFlag == 10273 && current.fieldId == 2250 && !vars.Splits.Contains("oeilvert"))
             {
                 vars.Splits.Add("oeilvert");
                 return true;
             }
-            if(settings["3.6"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 0 && !vars.Splits.Contains("ark"))
+            if(settings["3.7"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 0 && !vars.Splits.Contains("ark"))
             {
                 vars.Splits.Add("ark");
                 return true;
@@ -448,12 +454,12 @@ split
         }
         else if(current.ScenarioCounter >= 9790 && current.ScenarioCounter < 9900)
         {
-            if(settings["3.7"] && current.ScenarioCounter == 9820 && old.fieldId == 2206 && current.fieldId == 2213 && !vars.Splits.Contains("dpstart"))
+            if(settings["3.8"] && current.ScenarioCounter == 9820 && old.fieldId == 2206 && current.fieldId == 2213 && !vars.Splits.Contains("dpstart"))
             {
                 vars.Splits.Add("dpstart");
                 return true;
             }
-            if(settings["3.8"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 525 && !vars.Splits.Contains("valiapira"))
+            if(settings["3.9"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 525 && !vars.Splits.Contains("valiapira"))
             {
                 vars.Splits.Add("valiapira");
                 return true;
@@ -461,17 +467,17 @@ split
         }
         else if(current.ScenarioCounter >= 9900 && current.ScenarioCounter < 10000)
         {
-            if(settings["3.9"] && old.stateFlag == 7000 && current.stateFlag == 10273 && current.fieldId == 2300 && current.ScenarioCounter == 9910 && !vars.Splits.Contains("estogaza"))
+            if(settings["3.10"] && old.stateFlag == 7000 && current.stateFlag == 10273 && current.fieldId == 2300 && current.ScenarioCounter == 9910 && !vars.Splits.Contains("estogaza"))
             {
                 vars.Splits.Add("estogaza");
                 return true;
             }
-            if(settings["3.10"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 195 && !vars.Splits.Contains("reddragons"))
+            if(settings["3.11"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 195 && !vars.Splits.Contains("reddragons"))
             {
                 vars.Splits.Add("reddragons");
                 return true;
             }
-            if(settings["3.11"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 200 && !vars.Splits.Contains("meltigemini"))
+            if(settings["3.12"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 200 && !vars.Splits.Contains("meltigemini"))
             {
                 vars.Splits.Add("meltigemini");
                 return true;
@@ -479,12 +485,12 @@ split
         }
         else if(current.ScenarioCounter >= 10000 && current.ScenarioCounter < 10600)
         {
-            if(settings["3.12"] && old.stateFlag == 7000 && current.stateFlag == 10273 && current.fieldId == 2500 && current.ScenarioCounter == 10400 && !vars.Splits.Contains("ipsencastle"))
+            if(settings["3.13"] && old.stateFlag == 7000 && current.stateFlag == 10273 && current.fieldId == 2500 && current.ScenarioCounter == 10400 && !vars.Splits.Contains("ipsencastle"))
             {
                 vars.Splits.Add("ipsencastle");
                 return true;
             }
-            if(settings["3.13"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 871 && !vars.Splits.Contains("taharka"))
+            if(settings["3.14"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 871 && !vars.Splits.Contains("taharka"))
             {
                 vars.Splits.Add("taharka");
                 return true;
@@ -492,12 +498,12 @@ split
         }
         else if(current.ScenarioCounter >= 10600 && current.ScenarioCounter < 10830)
         {
-            if(settings["3.14"] && old.stateFlag == 7000 && current.stateFlag == 10273 && current.fieldId == 2550 && current.ScenarioCounter == 10660 && !vars.Splits.Contains("earthshrine"))
+            if(settings["3.15"] && old.stateFlag == 7000 && current.stateFlag == 10273 && current.fieldId == 2550 && current.ScenarioCounter == 10660 && !vars.Splits.Contains("earthshrine"))
             {
                 vars.Splits.Add("earthshrine");
                 return true;
             }
-            if(settings["3.15"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 2 && !vars.Splits.Contains("earthguardian"))
+            if(settings["3.16"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 2 && !vars.Splits.Contains("earthguardian"))
             {
                 vars.Splits.Add("earthguardian");
                 return true;
@@ -505,42 +511,42 @@ split
         }
         else if(current.ScenarioCounter >= 10830 && current.ScenarioCounter < 11200)
         {
-            if(settings["3.16"] && old.fieldId == 2650 && current.fieldId == 2651 && current.ScenarioCounter == 10890 && !vars.Splits.Contains("branbal"))
+            if(settings["3.17"] && old.fieldId == 2650 && current.fieldId == 2651 && current.ScenarioCounter == 10890 && !vars.Splits.Contains("branbal"))
             {
                 vars.Splits.Add("branbal");
                 return true;
             }
-            if(settings["3.17"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 155 && !vars.Splits.Contains("amdusias"))
+            if(settings["3.18"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 155 && !vars.Splits.Contains("amdusias"))
             {
                 vars.Splits.Add("amdusias");
                 return true;
             }
-            if(settings["3.18"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 160 && !vars.Splits.Contains("abadon"))
+            if(settings["3.19"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 160 && !vars.Splits.Contains("abadon"))
             {
                 vars.Splits.Add("abadon");
                 return true;
             }
-            if(settings["3.19"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 163 && !vars.Splits.Contains("shelldragon"))
+            if(settings["3.20"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 163 && !vars.Splits.Contains("shelldragon"))
             {
                 vars.Splits.Add("shelldragon");
                 return true;
             }
-            if(settings["3.20"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 889 && !vars.Splits.Contains("silverdragon"))
+            if(settings["3.21"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 889 && !vars.Splits.Contains("silverdragon"))
             {
                 vars.Splits.Add("silverdragon");
                 return true;
             }
-            if(settings["3.21"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 890 && !vars.Splits.Contains("garland"))
+            if(settings["3.22"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 890 && !vars.Splits.Contains("garland"))
             {
                 vars.Splits.Add("garland");
                 return true;
             }
-            if(settings["3.22"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 891 && !vars.Splits.Contains("kuja"))
+            if(settings["3.23"] && old.stateFlag == 4139 && current.stateFlag == 10273 && current.battleId == 891 && !vars.Splits.Contains("kuja"))
             {
                 vars.Splits.Add("kuja");
                 return true;
             }
-            if(settings["3.23"] && old.fieldId == 2750 && current.fieldId == 3052  && current.ScenarioCounter >= 10995 && !vars.Splits.Contains("eod3"))
+            if(settings["3.24"] && old.fieldId == 2750 && current.fieldId == 3052  && current.ScenarioCounter >= 10995 && !vars.Splits.Contains("eod3"))
             {
                 vars.Splits.Add("eod3");
                 return true;
