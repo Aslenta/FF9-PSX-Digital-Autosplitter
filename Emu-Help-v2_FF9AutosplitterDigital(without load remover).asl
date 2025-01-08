@@ -8,7 +8,7 @@ startup
 	vars.Helper.Load = (Func<dynamic, bool>)(emu => 
 	{
 		emu.Make<short>("ScenarioCounter", 0x8007AEF0);
-        emu.Make<short>("fieldId", 0x8008B25C);
+        	emu.Make<short>("fieldId", 0x8008B25C);
 		emu.Make<short>("fieldEntrance", 0x8007AEF2);
 		emu.Make<short>("battleId", 0x8008B25E);
 		emu.Make<short>("stateFlag", 0x800BD990);
